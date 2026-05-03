@@ -1,0 +1,1 @@
+This project is a simple parking fee calculator. It asks the user how many hours they parked, checks if the input is valid, and then calculates the cost based on $2.50 per hour. The program also enforces a minimum fee of $6.00 and a maximum fee of $20.00, then displays the final amount or an error message if the input is invalid.
