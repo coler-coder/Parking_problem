@@ -1,0 +1,70 @@
+from tkinter import *
+
+# Function to calculate average and letter grade
+def calculate_grade():
+    try:
+        scores = [
+            float(entry1.get()),
+            float(entry2.get()),
+            float(entry3.get())
+        ]
+
+        # loop + calculation
+        total = 0
+        for s in scores:
+            total += s
+
+        avg = total / len(scores)
+
+        # grade logic
+        if avg >= 90:
+            grade = "A"
+        elif avg >= 80:
+            grade = "B"
+        elif avg >= 70:
+            grade = "C"
+        elif avg >= 60:
+            grade = "D"
+        else:
+            grade = "F"
+
+        result_label.config(text=f"Average: {avg:.2f} | Grade: {grade}")
+
+    except:
+        result_label.config(text="Enter valid numbers!")
+
+# Function to clear inputs
+def clear_fields():
+    entry1.delete(0, END)
+    entry2.delete(0, END)
+    entry3.delete(0, END)
+    result_label.config(text="")
+
+
+# GUI Setup
+root = Tk()
+root.title("Student Grade App")
+root.geometry("400x300")
+
+# Labels
+Label(root, text="Test 1").pack()
+entry1 = Entry(root)
+entry1.pack()
+
+Label(root, text="Test 2").pack()
+entry2 = Entry(root)
+entry2.pack()
+
+Label(root, text="Test 3").pack()
+entry3 = Entry(root)
+entry3.pack()
+
+# Buttons
+Button(root, text="Calculate", command=calculate_grade).pack(pady=10)
+Button(root, text="Clear", command=clear_fields).pack()
+
+# Output
+result_label = Label(root, text="", fg="blue")
+result_label.pack(pady=10)
+
+root.mainloop()
