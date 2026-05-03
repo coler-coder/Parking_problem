@@ -1,0 +1,22 @@
+def getParkinghours():
+    instring = input('Enter number of hours parked: ')
+    if instring.isdigit():
+        return float(instring)
+    else:
+        return None
+
+def calcParkingFee(hours):
+    fee = hours * 2.50
+
+    if fee < 6.00:
+        fee = 6.00
+    elif fee > 20.00:
+        fee = 20.00
+
+    return fee
+
+if hours == None:
+    print('Invalid input entered for hours')
+else:
+    fee = calcParkingFee(hours)
+    print('Fee - $', fee)
